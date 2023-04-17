@@ -1,0 +1,11 @@
+Model Information:
+* title:	Futuristic R0V Revolver
+* source:	https://sketchfab.com/3d-models/futuristic-r0v-revolver-084d5f7e5186481ab49b26288b169520
+* author:	Mxrcelical (https://sketchfab.com/Makoi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Futuristic R0V Revolver" (https://sketchfab.com/3d-models/futuristic-r0v-revolver-084d5f7e5186481ab49b26288b169520) by Mxrcelical (https://sketchfab.com/Makoi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

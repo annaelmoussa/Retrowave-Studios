@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv2my641gyttc"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_qj155"]
+[ext_resource type="PackedScene" uid="uid://d2f24e6l8i4mq" path="res://view_model.tscn" id="2_7tpw8"]
+[ext_resource type="Script" path="res://Crosshair.gd" id="3_i2enc"]
+[ext_resource type="Texture2D" uid="uid://lw2dkocmli77" path="res://Crosshair/Left-Right.png" id="4_54374"]
+[ext_resource type="Texture2D" uid="uid://bg0ojnvc1sk4s" path="res://Crosshair/Left-Arrow.png" id="5_2gjun"]
+[ext_resource type="Texture2D" uid="uid://bwxvo0jgjvlsw" path="res://Crosshair/Left-Right-dynamic.png" id="5_cfg70"]
+[ext_resource type="Texture2D" uid="uid://c83dwvivoixpw" path="res://Crosshair/Left-Arrow-dynamic.png" id="6_w2jtn"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_d7v5e"]
+radius = 0.35
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_qj155")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.909499, 0)
+shape = SubResource("CylinderShape3D_d7v5e")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+cull_mask = 1048573
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="head/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="head/Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="view_model_camera" parent="head/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("2_7tpw8")]
+cull_mask = 1047554
+
+[node name="RayCast3D" type="RayCast3D" parent="head/Camera3D/SubViewportContainer/SubViewport/view_model_camera"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="UI" type="Control" parent="head/Camera3D"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaticArrowRight" type="Sprite2D" parent="head/Camera3D/UI"]
+position = Vector2(655, 325)
+scale = Vector2(0.0883929, 0.0883929)
+texture = ExtResource("4_54374")
+
+[node name="DynamicArrowRight" type="Sprite2D" parent="head/Camera3D/UI"]
+position = Vector2(655, 325)
+scale = Vector2(0.0883929, 0.0883929)
+texture = ExtResource("5_cfg70")
+
+[node name="StaticArrowLeft" type="Sprite2D" parent="head/Camera3D/UI"]
+position = Vector2(511, 324)
+scale = Vector2(0.0883929, 0.0883929)
+texture = ExtResource("5_2gjun")
+
+[node name="DynamicArrowLeft" type="Sprite2D" parent="head/Camera3D/UI"]
+position = Vector2(511, 324)
+scale = Vector2(0.0883929, 0.0883929)
+texture = ExtResource("6_w2jtn")
+
+[node name="Crosshair" type="Control" parent="head/Camera3D/UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_i2enc")
+
+[node name="RightLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
+points = PackedVector2Array(20, 0, 50, 0)
+width = 3.5
+end_cap_mode = 2
+
+[node name="BottomLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
+rotation = 1.5708
+points = PackedVector2Array(20, 0, 50, 0)
+width = 3.5
+end_cap_mode = 2
+
+[node name="LeftLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
+rotation = 3.14159
+points = PackedVector2Array(20, 0, 50, 0)
+width = 3.5
+end_cap_mode = 2
+
+[node name="TopLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
+rotation = 4.71239
+points = PackedVector2Array(20, 0, 50, 0)
+width = 3.5
+end_cap_mode = 2
+
+[node name="HitStreak" type="Label" parent="head/Camera3D/UI"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = -208.0
+offset_right = 48.0
+offset_bottom = -177.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20

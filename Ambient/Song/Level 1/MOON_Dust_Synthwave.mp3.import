@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://i1c4fk4dmx62"
+path="res://.godot/imported/MOON_Dust_Synthwave.mp3-4e7227c63a50dca234138285c61c4bb0.mp3str"
+
+[deps]
+
+source_file="res://Ambient/Song/Level 1/MOON_Dust_Synthwave.mp3"
+dest_files=["res://.godot/imported/MOON_Dust_Synthwave.mp3-4e7227c63a50dca234138285c61c4bb0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

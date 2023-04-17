@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmj2u2asjwwsq"]
+
+[ext_resource type="Script" path="res://GameOver.gd" id="1_a2hoy"]
+
+[sub_resource type="GDScript" id="GDScript_1on3p"]
+
+[node name="GameOver" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_a2hoy")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -13.0
+offset_right = 43.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.553
+anchor_right = 0.503
+anchor_bottom = 0.553
+offset_left = -60.4561
+offset_top = -17.344
+offset_right = 59.5439
+offset_bottom = 13.656
+grow_horizontal = 2
+grow_vertical = 2
+text = "Recommencer"
+script = SubResource("GDScript_1on3p")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 380.0
+offset_right = 611.0
+offset_bottom = 411.0
+text = "Quitter"
+
+[connection signal="pressed" from="Restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
