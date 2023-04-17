@@ -9,10 +9,10 @@ With a unique scoring system that rewards perfect timing and coordination, you'l
 ## Features
 - Responsive Controls: Intuitive and fluid controls that make you feel like a true action hero.
 - Dynamic Enemy Spawning: Face enemies that spawn right in front of you, ensuring non-stop action.
--Advanced Pathfinding: Enemies intelligently navigate the environment to close in on the player.
--Synchronized Enemy Waves: Coordinate your actions with incoming enemy waves to maximize your score.
--Realistic Damage System: Deal damage to enemies progressively, making each encounter more strategic and intense.
--Innovative Scoring System: Earn higher scores by perfecting your timing and chaining combos.
+- Advanced Pathfinding: Enemies intelligently navigate the environment to close in on the player.
+- Synchronized Enemy Waves: Coordinate your actions with incoming enemy waves to maximize your score.
+- Realistic Damage System: Deal damage to enemies progressively, making each encounter more strategic and intense.
+- Innovative Scoring System: Earn higher scores by perfecting your timing and chaining combos.
 
 ## How to Play
 1. Clone or download the project files to your local machine.
