@@ -3,10 +3,13 @@ extends CharacterBody3D
 @export var speed = 3.0
 @export var health = 20
 @export var damage = 10
+@export var attack_delay = 1.0
 @export var attack_range = 1.5
 @onready var player = $"../player"
 @onready var navigation_agent = $NavigationAgent3D
 @onready var nav: NavigationRegion3D = $"../NavigationRegion3D"
+
+var can_attack = true
 
 func _ready():
 	add_to_group("enemies")
@@ -29,18 +32,16 @@ func _on_target_reached():
 		_attack_player()
 #
 func _attack_player():
-	player.take_damage(damage)
+	if can_attack:
+		player.take_damage(damage)
+		can_attack = false
+		await get_tree().create_timer(attack_delay).timeout
+		can_attack = true
 	
-	
-	# Ajoutez cette méthode pour infliger des dégâts à l'ennemi
-func take_damage(damage):
-	health -= damage
-	
-	# Vérifiez si l'ennemi est mort
+func take_damage(damage_player):
+	health -= damage_player
 	if health <= 0:
 		_die()
 
-# Ajoutez cette méthode pour gérer la mort de l'ennemi
 func _die():
-	# Faites ici ce que vous voulez lorsque l'ennemi meurt, par exemple :
 	queue_free()

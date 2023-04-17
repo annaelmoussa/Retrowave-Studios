@@ -5,9 +5,6 @@ extends Node3D
 func _physics_process(delta):
 	get_tree().call_group("enemies", "update_target_position", player.global_transform.origin)
 
-
-
-
 func spawn_enemy():
 	var spawn_distance = 10.0
 	var player_direction = player.global_transform.basis.z.normalized()  # Get the player's forward direction

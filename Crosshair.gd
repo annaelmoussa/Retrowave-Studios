@@ -78,7 +78,6 @@ func update_perfect_counter(point):
 
 func fire(delta):
 	if Input.is_action_pressed("fire") and can_fire:
-
 		up_ch.position = lerp( up_ch.position , Vector2(0 ,-CH_recoil_pos) , 3*delta)
 		down_ch.position = lerp( down_ch.position , Vector2(0 , CH_recoil_pos) , 3 *delta)
 		left_ch.position = lerp( left_ch.position , Vector2( -CH_recoil_pos , 0) ,3 *delta)
