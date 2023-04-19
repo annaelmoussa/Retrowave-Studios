@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv2my641gyttc"]
+[gd_scene load_steps=10 format=3 uid="uid://bv2my641gyttc"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_qj155"]
 [ext_resource type="PackedScene" uid="uid://d2f24e6l8i4mq" path="res://view_model.tscn" id="2_7tpw8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bg0ojnvc1sk4s" path="res://Crosshair/Left-Arrow.png" id="5_2gjun"]
 [ext_resource type="Texture2D" uid="uid://bwxvo0jgjvlsw" path="res://Crosshair/Left-Right-dynamic.png" id="5_cfg70"]
 [ext_resource type="Texture2D" uid="uid://c83dwvivoixpw" path="res://Crosshair/Left-Arrow-dynamic.png" id="6_w2jtn"]
+[ext_resource type="Texture2D" uid="uid://dxsexdb32xp8u" path="res://Player/damage_texture.png" id="8_vis70"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d7v5e"]
 radius = 0.35
@@ -116,3 +117,9 @@ offset_right = 48.0
 offset_bottom = -177.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
+
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("8_vis70")
