@@ -18,6 +18,7 @@ var health_regeneration_delay = 3.0
 
 @onready var head = $head
 @onready var camera = $head/Camera3D
+@onready var damage_texture = $head/Camera3D/TextureRect
 
 func _ready():
 	#hides the cursor
@@ -61,7 +62,7 @@ func _physics_process(delta):
 		if time_since_last_attack >= health_regeneration_delay:
 			health += health_regeneration_rate * delta
 			health = min(health, max_health)
-
+			damage_texture.modulate = Color(1, 1, 1, (float) (max_health - health) / max_health)
 	# Gestion de l'attaque du joueur
 	if Input.is_action_just_pressed("fire"):
 		_shoot()
@@ -69,6 +70,7 @@ func _physics_process(delta):
 func take_damage(damage):
 	print_debug(health)
 	health -= damage
+	damage_texture.modulate = Color(1, 1, 1, (float) (max_health - health) / max_health)
 	time_since_last_attack = 0.0
 	if health <= 0:
 		_on_player_death()
@@ -108,3 +110,4 @@ func _shoot():
 
 func reset_health():
 	health = max_health
+	damage_texture.modulate = Color(1, 1, 1, (float) (max_health - health) / max_health)

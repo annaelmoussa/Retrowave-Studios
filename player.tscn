@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv2my641gyttc"]
+[gd_scene load_steps=13 format=3 uid="uid://bv2my641gyttc"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_qj155"]
 [ext_resource type="PackedScene" uid="uid://d2f24e6l8i4mq" path="res://view_model.tscn" id="2_7tpw8"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bg0ojnvc1sk4s" path="res://Crosshair/Left-Arrow.png" id="5_2gjun"]
 [ext_resource type="Texture2D" uid="uid://bwxvo0jgjvlsw" path="res://Crosshair/Left-Right-dynamic.png" id="5_cfg70"]
 [ext_resource type="Texture2D" uid="uid://c83dwvivoixpw" path="res://Crosshair/Left-Arrow-dynamic.png" id="6_w2jtn"]
+[ext_resource type="Texture2D" uid="uid://w6g141bpuar7" path="res://Progressbar/progressbar.png" id="8_uei54"]
+[ext_resource type="Texture2D" uid="uid://dxsexdb32xp8u" path="res://Player/damage_texture.png" id="8_vis70"]
+[ext_resource type="Texture2D" uid="uid://u5wo4rnm8b6x" path="res://Progressbar/progressbar-filling.png" id="9_hdd4h"]
+[ext_resource type="AudioStream" uid="uid://dihbmetbyljub" path="res://Musique/song_game.mp3" id="11_ytimo"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_d7v5e"]
 radius = 0.35
@@ -122,7 +126,20 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -155.5
-offset_right = 155.5
-offset_bottom = 40.0
+offset_left = -787.0
+offset_right = 788.0
+offset_bottom = 629.0
 grow_horizontal = 2
+fill_mode = 6
+texture_under = ExtResource("8_uei54")
+texture_progress = ExtResource("9_hdd4h")
+
+[node name="TextureRect" type="TextureRect" parent="head/Camera3D"]
+modulate = Color(1, 1, 1, 0)
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("8_vis70")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_ytimo")
+autoplay = true
