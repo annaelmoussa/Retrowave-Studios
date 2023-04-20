@@ -87,24 +87,28 @@ grow_vertical = 2
 script = ExtResource("3_i2enc")
 
 [node name="RightLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
+scale = Vector2(0.5, 0.5)
 points = PackedVector2Array(20, 0, 50, 0)
 width = 3.5
 end_cap_mode = 2
 
 [node name="BottomLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
 rotation = 1.5708
+scale = Vector2(0.5, 0.5)
 points = PackedVector2Array(20, 0, 50, 0)
 width = 3.5
 end_cap_mode = 2
 
 [node name="LeftLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
 rotation = 3.14159
+scale = Vector2(0.5, 0.5)
 points = PackedVector2Array(20, 0, 50, 0)
 width = 3.5
 end_cap_mode = 2
 
 [node name="TopLine" type="Line2D" parent="head/Camera3D/UI/Crosshair"]
 rotation = 4.71239
+scale = Vector2(0.5, 0.5)
 points = PackedVector2Array(20, 0, 50, 0)
 width = 3.5
 end_cap_mode = 2
@@ -130,6 +134,7 @@ offset_left = -787.0
 offset_right = 788.0
 offset_bottom = 629.0
 grow_horizontal = 2
+scale = Vector2(1, 0.6)
 fill_mode = 6
 texture_under = ExtResource("8_uei54")
 texture_progress = ExtResource("9_hdd4h")
