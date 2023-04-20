@@ -23,15 +23,22 @@ var health_regeneration_delay = 3.0
 
 
 func _ready():
+	OS.open_midi_inputs()
+	print(OS.get_connected_midi_inputs())
 	#hides the cursor
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$head/Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	
 func _input(event):
 	#get mouse input for camera rotation
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sense))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sense))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+		
+	if event is InputEventMIDI:
+		print_debug("midi")
+		_shoot()
 
 func _physics_process(delta):
 	$head/Camera3D/SubViewportContainer/SubViewport/view_model_camera.global_transform = camera.global_transform
@@ -124,3 +131,4 @@ func _shoot():
 func reset_health():
 	health = max_health
 	damage_texture.modulate = Color(1, 1, 1, (float) (max_health - health) / max_health)
+	
