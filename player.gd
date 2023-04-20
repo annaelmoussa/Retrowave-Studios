@@ -20,7 +20,7 @@ var health_regeneration_delay = 3.0
 @onready var camera = $head/Camera3D
 @onready var damage_texture = $head/Camera3D/TextureRect
 @onready var anim_player = $head/Camera3D/SubViewportContainer/SubViewport/view_model_camera/AnimationPlayer
-
+@onready var shot_sound = $head/Camera3D/SubViewportContainer/SubViewport/view_model_camera/ShootSound
 
 func _ready():
 	#hides the cursor
@@ -107,6 +107,8 @@ func _shoot():
 	# Lancer l'animation du tir
 	anim_player.stop()
 	anim_player.play("shoot")
+	# var rng = RandomNumberGenerator.new().randf_range(.7, .9)
+	shot_sound.set_pitch_scale(RandomNumberGenerator.new().randf_range(.7, .9))
 
 	# Lancez le raycast
 	raycast.force_raycast_update()
