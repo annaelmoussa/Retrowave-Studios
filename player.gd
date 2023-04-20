@@ -19,6 +19,8 @@ var health_regeneration_delay = 3.0
 @onready var head = $head
 @onready var camera = $head/Camera3D
 @onready var damage_texture = $head/Camera3D/TextureRect
+@onready var anim_player = $head/Camera3D/SubViewportContainer/SubViewport/view_model_camera/AnimationPlayer
+
 
 func _ready():
 	#hides the cursor
@@ -52,6 +54,13 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	if anim_player.current_animation == "shoot":
+		pass
+	elif input_dir != Vector2.ZERO and is_on_floor():
+		anim_player.play("move")
+	else:
+		anim_player.play("idle")
 
 	move_and_slide()
 
@@ -94,6 +103,10 @@ func _shoot():
 	
 	# Activez le raycast
 	raycast.enabled = true
+	
+	# Lancer l'animation du tir
+	anim_player.stop()
+	anim_player.play("shoot")
 
 	# Lancez le raycast
 	raycast.force_raycast_update()
